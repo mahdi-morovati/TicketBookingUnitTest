@@ -12,6 +12,7 @@ public class TicketBookingRequestHandlerTest
     private readonly TicketBookingRequestHandler _handler;
     private readonly TicketBookingRequest _request;
     private readonly Mock<ITicketBookingService> _ticketBookingServiceMock;
+    private readonly List<Ticket> _availableTickets;
 
     public TicketBookingRequestHandlerTest()
     {
@@ -21,12 +22,15 @@ public class TicketBookingRequestHandlerTest
             Name = "Test Name",
             Family = "Test Family",
             Email = "Test Email",
+            Date = DateTime.Now
         };
 
+        _availableTickets = new List<Ticket>() { new Ticket() };
         _ticketBookingServiceMock = new Mock<ITicketBookingService>();
-        
-        _handler = new TicketBookingRequestHandler(_ticketBookingServiceMock.Object);
+        _ticketBookingServiceMock.Setup(x => x.GetAvailableTicketS(_request.Date))
+            .Returns(_availableTickets);
 
+        _handler = new TicketBookingRequestHandler(_ticketBookingServiceMock.Object);
     }
 
     [Fact]
@@ -61,11 +65,8 @@ public class TicketBookingRequestHandlerTest
     {
         TicketBooking saveBooking = null;
         _ticketBookingServiceMock.Setup(x => x.Save(It.IsAny<TicketBooking>()))
-            .Callback<TicketBooking>(booking =>
-            {
-                saveBooking = booking;
-            });
-        
+            .Callback<TicketBooking>(booking => { saveBooking = booking; });
+
         _handler.BookService(_request);
         _ticketBookingServiceMock.Verify(x => x.Save(It.IsAny<TicketBooking>()), Times.Once);
 
@@ -73,6 +74,13 @@ public class TicketBookingRequestHandlerTest
         saveBooking.Name.ShouldBe(_request.Name);
         saveBooking.Family.ShouldBe(_request.Family);
         saveBooking.Email.ShouldBe(_request.Email);
+    }
 
+    [Fact]
+    public void Should_Not_Save_Ticket_Booking_Request_If_None_Available()
+    {
+        _availableTickets.Clear();
+        _handler.BookService(_request);
+        _ticketBookingServiceMock.Verify(x => x.Save(It.IsAny<TicketBooking>()), Times.Never);
     }
 }
