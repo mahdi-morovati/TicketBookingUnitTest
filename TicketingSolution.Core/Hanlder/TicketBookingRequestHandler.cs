@@ -1,4 +1,6 @@
-namespace TicketingSolution.Core;
+using TicketingSolution.Core.Model;
+
+namespace TicketingSolution.Core.Hanlder;
 
 public class TicketBookingRequestHandler
 {

@@ -1,4 +1,6 @@
 using Shouldly;
+using TicketingSolution.Core.Hanlder;
+using TicketingSolution.Core.Model;
 
 namespace TicketingSolution.Core.Test;
 
@@ -23,7 +25,7 @@ public class TicketBookingRequestHandlerTest
         Assert.Equal(result.Name, bookingRequest.Name);
         Assert.Equal(result.Family, bookingRequest.Family);
         Assert.Equal(result.Email, bookingRequest.Email);
-        
+
         // Assert by Shouldly
         result.ShouldNotBeNull();
         result.Name.ShouldBe(bookingRequest.Name);
