@@ -23,7 +23,10 @@ public class TicketBookingRequestHandler
         var availableTickets = _ticketBookingService.GetAvailableTicketS(bookingRequest.Date);
         if (availableTickets.Any())
         {
-            _ticketBookingService.Save(CreateTicketBookingObject<TicketBooking>(bookingRequest));
+            var ticket = availableTickets.First();
+            var ticketBooking = CreateTicketBookingObject<TicketBooking>(bookingRequest);
+            ticketBooking.TicketId = ticket.Id;
+            _ticketBookingService.Save(ticketBooking);
         }
 
         return CreateTicketBookingObject<ServiceBookingResult>(bookingRequest);
