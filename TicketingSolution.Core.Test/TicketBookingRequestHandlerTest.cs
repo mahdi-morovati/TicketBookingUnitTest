@@ -2,6 +2,7 @@ using Moq;
 using Shouldly;
 using TicketingSolution.Core.DataServices;
 using TicketingSolution.Core.Domain;
+using TicketingSolution.Core.Enums;
 using TicketingSolution.Core.Hanlder;
 using TicketingSolution.Core.Model;
 
@@ -25,7 +26,7 @@ public class TicketBookingRequestHandlerTest
             Date = DateTime.Now
         };
 
-        _availableTickets = new List<Ticket>() { new Ticket() {Id = 1} };
+        _availableTickets = new List<Ticket>() { new Ticket() { Id = 1 } };
         _ticketBookingServiceMock = new Mock<ITicketBookingService>();
         _ticketBookingServiceMock.Setup(x => x.GetAvailableTicketS(_request.Date))
             .Returns(_availableTickets);
@@ -83,5 +84,19 @@ public class TicketBookingRequestHandlerTest
         _availableTickets.Clear();
         _handler.BookService(_request);
         _ticketBookingServiceMock.Verify(x => x.Save(It.IsAny<TicketBooking>()), Times.Never);
+    }
+
+    [Theory]
+    [InlineData(BookingResultFlag.Failure, false)]
+    [InlineData(BookingResultFlag.Success, true)]
+    public void Should_Return_SuccessOrFailure_Flag_In_Result(BookingResultFlag bookingResultFlag, bool isAvailable)
+    {
+        if (!isAvailable)
+        {
+            _availableTickets.Clear();
+        }
+        
+        var result = _handler.BookService(_request);
+        bookingResultFlag.ShouldBe(result.Flag);
     }
 }
