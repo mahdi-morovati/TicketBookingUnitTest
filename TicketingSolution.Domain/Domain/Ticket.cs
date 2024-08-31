@@ -1,4 +1,4 @@
-namespace TicketingSolution.Core.Domain;
+namespace TicketingSolution.Domain.Domain;
 
 public class Ticket
 {

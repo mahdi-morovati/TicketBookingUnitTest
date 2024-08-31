@@ -1,10 +1,10 @@
 using Moq;
 using Shouldly;
 using TicketingSolution.Core.DataServices;
-using TicketingSolution.Core.Domain;
 using TicketingSolution.Core.Enums;
 using TicketingSolution.Core.Hanlder;
 using TicketingSolution.Core.Model;
+using TicketingSolution.Domain.Domain;
 
 namespace TicketingSolution.Core.Test;
 
