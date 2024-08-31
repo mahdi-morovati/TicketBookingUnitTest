@@ -29,6 +29,7 @@ public class TicketBookingRequestHandler
             var ticketBooking = CreateTicketBookingObject<TicketBooking>(bookingRequest);
             ticketBooking.TicketId = ticket.Id;
             _ticketBookingService.Save(ticketBooking);
+            result.TicketBookId = ticketBooking.TicketId;
             result.Flag = BookingResultFlag.Success;
         }
         else
