@@ -2,6 +2,7 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=2ae66477_002D05ad_002D42b9_002D8331_002Dfc4b691e9b10/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Should_Return_Available_Services" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
     &lt;TestId&gt;xUnit::3F22D278-EABF-4B66-8D3A-30C4B7230008::net8.0::TicketingSolution.Persistence.Test.TicketBookingServiceTest.Should_Return_Available_Services&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::3F22D278-EABF-4B66-8D3A-30C4B7230008::net8.0::TicketingSolution.Persistence.Test.TicketBookingServiceTest.Should_Save_Ticket_Booking&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=c9088fd7_002D1d7e_002D4377_002Db7b8_002D6d31efb28aee/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="ShouldReturnTicketBookingREsponseWithRequestValues" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
