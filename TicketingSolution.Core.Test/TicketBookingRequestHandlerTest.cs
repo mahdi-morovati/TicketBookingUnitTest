@@ -28,7 +28,7 @@ public class TicketBookingRequestHandlerTest
 
         _availableTickets = new List<Ticket>() { new Ticket() { Id = 1 } };
         _ticketBookingServiceMock = new Mock<ITicketBookingService>();
-        _ticketBookingServiceMock.Setup(x => x.GetAvailableTicketS(_request.Date))
+        _ticketBookingServiceMock.Setup(x => x.GetAvailableTickets(_request.Date))
             .Returns(_availableTickets);
 
         _handler = new TicketBookingRequestHandler(_ticketBookingServiceMock.Object);

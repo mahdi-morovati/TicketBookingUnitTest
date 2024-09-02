@@ -22,7 +22,7 @@ public class TicketBookingRequestHandler
             throw new ArgumentNullException(nameof(bookingRequest));
         }
 
-        var availableTickets = _ticketBookingService.GetAvailableTicketS(bookingRequest.Date);
+        var availableTickets = _ticketBookingService.GetAvailableTickets(bookingRequest.Date);
         var result = CreateTicketBookingObject<ServiceBookingResult>(bookingRequest);
         if (availableTickets.Any())
         {
