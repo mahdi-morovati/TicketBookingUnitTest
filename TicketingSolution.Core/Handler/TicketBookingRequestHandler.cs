@@ -4,9 +4,9 @@ using TicketingSolution.Core.Model;
 using TicketingSolution.Domain.BaseModels;
 using TicketingSolution.Domain.Domain;
 
-namespace TicketingSolution.Core.Hanlder;
+namespace TicketingSolution.Core.Handler;
 
-public class TicketBookingRequestHandler
+public class TicketBookingRequestHandler : ITicketBookingRequestHandler
 {
     private readonly ITicketBookingService _ticketBookingService;
 

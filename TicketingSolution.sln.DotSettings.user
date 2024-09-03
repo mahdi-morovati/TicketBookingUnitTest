@@ -6,9 +6,16 @@
     &lt;TestId&gt;xUnit::FF967A59-C222-47EE-9C78-5A231CDDB083::net8.0::TicketingSolution.API.Test.UnitTest1.Should_Return_Forecast_Results&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=c9088fd7_002D1d7e_002D4377_002Db7b8_002D6d31efb28aee/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="ShouldReturnTicketBookingREsponseWithRequestValues" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=9e844bc3_002D07e9_002D4160_002D91fa_002D821779bfeb3c/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="BookingControllerTest" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::FF967A59-C222-47EE-9C78-5A231CDDB083::net8.0::TicketingSolution.API.Test.BookingControllerTest&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=c9088fd7_002D1d7e_002D4377_002Db7b8_002D6d31efb28aee/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="ShouldReturnTicketBookingREsponseWithRequestValues" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
     &lt;TestId&gt;xUnit::E3B00163-894A-4C40-B27A-2DF9949F170B::net8.0::TicketingSolution.Core.Test.TicketBookingRequestHandlerTest&lt;/TestId&gt;
     &lt;TestId&gt;xUnit::3F22D278-EABF-4B66-8D3A-30C4B7230008::net8.0::TicketingSolution.Persistence.Test.TicketBookingServiceTest&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::FF967A59-C222-47EE-9C78-5A231CDDB083::net8.0::TicketingSolution.API.Test.UnitTest1&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::FF967A59-C222-47EE-9C78-5A231CDDB083::net8.0::TicketingSolution.API.Test.BookingControllerTest&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
