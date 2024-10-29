@@ -2,7 +2,7 @@ using Moq;
 using Shouldly;
 using TicketingSolution.Core.DataServices;
 using TicketingSolution.Core.Enums;
-using TicketingSolution.Core.Hanlder;
+using TicketingSolution.Core.Handler;
 using TicketingSolution.Core.Model;
 using TicketingSolution.Domain.Domain;
 

@@ -9,13 +9,35 @@ namespace TicketingSolution.Persistence.Test;
 public class TicketBookingServiceTest
 {
     [Fact]
+    public void Should_Save_Ticket_Booking()
+    {
+        // Arrange
+        var dbOptions = new DbContextOptionsBuilder<TicketingSolutionDbContext>()
+            .UseInMemoryDatabase("ShouldSaveTest", b => b.EnableNullChecks(false))
+            .Options;
+        var ticketBooking = new TicketBooking { TicketId = 1, Date = new DateTime(2024, 08, 31) };
+
+        // Act
+        using var context = new TicketingSolutionDbContext(dbOptions);
+        var ticketBookingService = new TicketBookingService(context);
+        ticketBookingService.Save(ticketBooking);
+
+        // Assert
+        var bookings = context.TicketBookings.ToList();
+        var booking = Assert.Single(bookings);
+        
+        Assert.Equal(ticketBooking.Date, booking.Date);
+        Assert.Equal(ticketBooking.TicketId, booking.TicketId);
+    }
+
+    [Fact]
     public void Should_Return_Available_Services()
     {
         // Arrange
         var date = new DateTime(2024, 08, 31);
 
         var dbOptions = new DbContextOptionsBuilder<TicketingSolutionDbContext>()
-            .UseInMemoryDatabase("AvailableTicketTest",b => b.EnableNullChecks(false))
+            .UseInMemoryDatabase("AvailableTicketTest", b => b.EnableNullChecks(false))
             .Options;
 
         using var context = new TicketingSolutionDbContext(dbOptions);
@@ -30,15 +52,14 @@ public class TicketBookingServiceTest
         context.SaveChanges();
 
         var ticketBookingService = new TicketBookingService(context);
-        
+
         // Act
         var availableServices = ticketBookingService.GetAvailableTickets(date);
-        
+
         //Assert
         Assert.Equal(2, availableServices.Count());
         Assert.Contains(availableServices, q => q.Id == 2);
         Assert.Contains(availableServices, q => q.Id == 3);
         Assert.DoesNotContain(availableServices, q => q.Id == 1);
-
     }
 }

@@ -1,9 +1,25 @@
+using Microsoft.Data.Sqlite;
+using Microsoft.EntityFrameworkCore;
+using Persistence;
+using TicketingSolution.Core.Handler;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddControllers();
+
+var connString = "DataSource=:memory:";
+var conn = new SqliteConnection(connString);
+conn.Open();
+
+builder.Services.AddDbContext<TicketingSolutionDbContext>(options => options.UseSqlite(conn));
+
+builder.Services.AddScoped<ITicketBookingRequestHandler, TicketBookingRequestHandler>();
+    
 
 var app = builder.Build();
 
